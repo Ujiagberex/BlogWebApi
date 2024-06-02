@@ -1,20 +1,22 @@
-﻿using BLogProject.Model;
+﻿using BLogProject.Data;
+using BLogProject.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BLogProject.Controllers
-{
-	public class AuthorController : ControllerBase
-	{
-		[Authorize(Roles = RoleNames.Author)]
+{		[Authorize]
 		[ApiController]
 		[Route("api/[controller]")]
-		public class AdminController : ControllerBase
+		
+		public class AuthorController : ControllerBase
 		{
-			private readonly ILogger _logger;
+			[HttpGet]
+
+			public ActionResult Get()
+			{
+				return Ok("My name is rex");
+			}
 
 		}
-
-	}
 }
